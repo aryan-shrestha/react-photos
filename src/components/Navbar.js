@@ -5,7 +5,7 @@ function Navbar() {
   return (
     <div className="navbar-container">
       <div className="logo">
-        <i class="fas fa-camera-retro"></i> <h1>Photos</h1>
+        <i className="fas fa-camera-retro"></i> <h1>Photos</h1>
       </div>
       <div className="search-box">
         <input
@@ -14,7 +14,7 @@ function Navbar() {
           placeholder="Search..."
         />
         <button>
-          <i class="fas fa-search"></i>
+          <i className="fas fa-search"></i>
         </button>
       </div>
     </div>
