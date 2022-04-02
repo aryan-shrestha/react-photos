@@ -53,9 +53,18 @@
   border: none;
   outline: none;
   font-size: 16px;
-  color: #102437;
+  color: #102437b1;
 }
 
 .search-box > input {
   width: 20rem;
+}
+
+.search-box > button {
+  font-size: 20px;
+  cursor: pointer;
+}
+
+.search-box > button:hover {
+  color: #102437;
 }

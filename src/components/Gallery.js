@@ -1,19 +1,27 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 import useFetchImage from "../utils/useFetchImage";
 import Image from "./Image";
 import "../assets/css/gallery.css";
+import useScroll from "../utils/useScroll";
+import Loading from "./Loading";
 
 function Gallery() {
-  const [images, setImages] = useFetchImage();
+  const [page, setPage] = useState(1);
+  const scrollPosition = useScroll();
+  const [images, setImages, isLoading] = useFetchImage({ page: page });
 
-  console.log(images);
+  useEffect(() => {
+    if (scrollPosition >= document.body.offsetHeight - window.innerHeight) {
+      setPage(page + 1);
+    }
+  }, [scrollPosition]);
 
   return (
     <div className="gallery-container">
-      {console.log("rendered")}
       {images.map((image) => {
         return <Image url={image.src.medium} />;
       })}
+      {isLoading && <Loading />}
     </div>
   );
 }
