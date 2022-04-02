@@ -28,13 +28,10 @@ function useFetchImage(props) {
         func(res);
       })
       .catch((e) => {
+        console.log(e);
         setErrors(["Unable to fetch Images"]);
+        setIsLoading(false);
       });
-  }
-
-  function fetchRandom(res) {
-    setImages([...images, ...res.data.photos]);
-    setIsLoading(false);
   }
 
   function fetchSearch(res) {
@@ -43,15 +40,20 @@ function useFetchImage(props) {
     console.log(images);
   }
 
+  function fetchRandom(res) {
+    setImages([...images, ...res.data.photos]);
+    setIsLoading(false);
+  }
+
   useEffect(() => {
     setIsLoading(true);
     fetch();
-  }, [props.page, props.searchTerm]);
+  }, [props.page]);
 
-  // useEffect(() => {
-  //   setIsLoading(true);
-  //   fetchSearch();
-  // }, [props.searchTerm]);
+  useEffect(() => {
+    setIsLoading(true);
+    fetch();
+  }, [props.searchTerm]);
 
   return [images, setImages, isLoading, errors];
 }

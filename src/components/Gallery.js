@@ -8,7 +8,7 @@ import Loading from "./Loading";
 function Gallery() {
   const [page, setPage] = useState(1);
   const scrollPosition = useScroll();
-  const [images, setImages, isLoading] = useFetchImage({ page: page });
+  const [images, setImages, isLoading, errors] = useFetchImage({ page: page });
 
   useEffect(() => {
     if (scrollPosition >= document.body.offsetHeight - window.innerHeight) {
@@ -18,10 +18,13 @@ function Gallery() {
 
   return (
     <div className="gallery-container">
+      <p style={{ position: "absolute", top: "12vh", right: "45%" }}>
+        {errors[0]}
+      </p>
       {images.map((image) => {
         return <Image url={image.src.medium} />;
       })}
-      {isLoading && <Loading />}
+      {isLoading == true && <Loading />}
     </div>
   );
 }
