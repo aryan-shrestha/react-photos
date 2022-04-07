@@ -4,7 +4,7 @@ import "../assets/css/loading.css";
 function Loading() {
   return (
     <div className="loading-container">
-      <i class="fas fa-circle-notch fa-spin"></i>
+      <i className="fas fa-circle-notch fa-spin"></i>
     </div>
   );
 }

@@ -36,7 +36,7 @@ function Gallery() {
           {errors[0]}
         </p>
         {images.map((image) => {
-          return <Image url={image.src.medium} />;
+          return <Image url={image.src.medium} key={image.id} />;
         })}
       </div>
       <form className="search-box" onSubmit={handleSubmit}>

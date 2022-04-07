@@ -13,12 +13,13 @@ function App() {
       <Router>
         <NavBar />
         <Switch>
-          {routes.map((route) => {
+          {routes.map((route, index) => {
             return (
               <Route
                 exact={route.exact}
                 path={route.path}
                 component={route.component}
+                key={index}
               />
             );
           })}

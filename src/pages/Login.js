@@ -1,8 +1,40 @@
-import React from "react";
+import React, { useState } from "react";
 import { Link } from "react-router-dom";
+import { getAuth, signInWithEmailAndPassword } from "firebase/auth";
+import { app } from "../firebase/firebase";
+import { useHistory } from "react-router-dom";
+
+import Alert from "../components/Alert";
+import Loading from "../components/Loading";
 import "../assets/css/login.css";
 
 function Login() {
+  const auth = getAuth(app);
+  const [formData, setFormData] = useState({ email: "", password: "" });
+  const [isLoading, setIsLoading] = useState(false);
+  const [error, setError] = useState("");
+  const history = useHistory();
+
+  function handleSubmit(e) {
+    if (isLoading) return;
+    setIsLoading(true);
+    e.preventDefault();
+    signInWithEmailAndPassword(auth, formData.email, formData.password)
+      .then((res) => {
+        setIsLoading(false);
+        setError("");
+        history.replace("/");
+      })
+      .catch((err) => {
+        setError("Invalid email or password");
+        setIsLoading(false);
+      });
+  }
+
+  function handleInput(e) {
+    setFormData({ ...formData, [e.target.name]: e.target.value });
+  }
+
   return (
     <div className="login-container">
       <div className="background-container">
@@ -55,20 +87,29 @@ function Login() {
       <div className="foreground-container">
         <div className="form-container">
           <h1>Welcome Back to Photos</h1>
-          <form action="">
+          <form onSubmit={handleSubmit}>
+            {error !== "" && <Alert errorMessage={error} />}
             <div className="input-container">
               <label htmlFor="email"></label>
               <input
                 type="email"
                 placeholder="example@email.com"
                 name="email"
+                value={formData.email}
+                onChange={handleInput}
               />
             </div>
             <div className="input-container">
-              <input type="password" placeholder="password" />
+              <input
+                type="password"
+                placeholder="password"
+                name="password"
+                value={formData.password}
+                onChange={handleInput}
+              />
             </div>
             <button type="submit" className="login-btn">
-              Login
+              {isLoading ? <Loading /> : "Login"}
             </button>
           </form>
           <p>

@@ -39,14 +39,16 @@
 /* nav links Css */
 
 .nav-links {
+  height: 100%;
   display: flex;
   list-style-type: none;
+  align-items: center;
 }
 
 .nav-link {
   text-decoration: none;
   padding: 10px 8px;
-  margin: 5px;
+  margin-right: 5px;
   color: #102437;
   transition: all 0.5s;
 }

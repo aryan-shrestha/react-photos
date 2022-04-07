@@ -54,6 +54,8 @@
 
 .form-container > h1 {
   margin-bottom: 40px;
+  font-size: 28px;
+  font-weight: 400;
 }
 
 .form-container > p {
