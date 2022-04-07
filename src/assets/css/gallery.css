@@ -52,7 +52,7 @@
 }
 
 .search-box {
-  height: 6vh;
+  height: 7vh;
   padding: 8px;
   display: flex;
   align-items: center;
@@ -62,7 +62,7 @@
   bottom: 15px;
   width: 50%;
   margin: auto;
-  background: rgba(255, 255, 255, 0.3);
+  background: rgba(255, 255, 255, 0.63);
   box-shadow: 0 2px 16px 0 rgba(31, 38, 135, 0.247);
   backdrop-filter: blur(40px);
   -webkit-backdrop-filter: blur(3px);

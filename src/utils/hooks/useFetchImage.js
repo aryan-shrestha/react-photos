@@ -1,5 +1,5 @@
 import { useState, useEffect } from "react";
-import axios from "./axios";
+import axios from "../axios";
 
 function useFetchImage(props) {
   const [images, setImages] = useState([]);

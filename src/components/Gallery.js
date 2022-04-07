@@ -1,10 +1,11 @@
 import React, { useEffect, useState } from "react";
-import useFetchImage from "../utils/useFetchImage";
-import Image from "./Image";
-import "../assets/css/gallery.css";
 
-import useScroll from "../utils/useScroll";
+import useFetchImage from "../utils/hooks/useFetchImage";
+import useScroll from "../utils/hooks/useScroll";
 import Loading from "./Loading";
+import Image from "./Image";
+
+import "../assets/css/gallery.css";
 
 function Gallery() {
   const [page, setPage] = useState(1);

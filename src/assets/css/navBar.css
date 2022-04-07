@@ -1,11 +1,13 @@
 @import url("https://fonts.googleapis.com/css2?family=Reenie+Beanie&display=swap");
 
 .navbar-container {
+  position: sticky;
+  top: 0;
   height: 10vh;
   display: flex;
+  justify-content: space-between;
   padding-left: 20px;
   padding-right: 20px;
-  justify-content: space-between;
   align-items: center;
   background: rgba(255, 255, 255, 0.3);
   box-shadow: 0 2px 16px 0 rgba(31, 38, 135, 0.247);
@@ -13,8 +15,6 @@
   -webkit-backdrop-filter: blur(6px);
   border-radius: 10px;
   border: 1px solid rgba(255, 255, 255, 0.18);
-  position: sticky;
-  top: 0;
   z-index: 2;
 }
 
@@ -34,4 +34,31 @@
 .logo > h1 {
   font-family: "Reenie Beanie", cursive;
   font-size: 35px;
+}
+
+/* nav links Css */
+
+.nav-links {
+  display: flex;
+  list-style-type: none;
+}
+
+.nav-link {
+  text-decoration: none;
+  padding: 10px 8px;
+  margin: 5px;
+  color: #102437;
+  transition: all 0.5s;
+}
+
+.nav-link:hover {
+  color: #05a081;
+  background-color: #102437;
+  border-radius: 15px;
+}
+
+.active {
+  color: #05a081;
+  background-color: #102437;
+  border-radius: 15px;
 }
