@@ -2,7 +2,7 @@ import React, { useEffect, useState } from "react";
 import useFetchImage from "../utils/useFetchImage";
 import Image from "./Image";
 import "../assets/css/gallery.css";
-import "../assets/css/navBar.css";
+
 import useScroll from "../utils/useScroll";
 import Loading from "./Loading";
 
@@ -17,6 +17,7 @@ function Gallery() {
 
   function handleSubmit(e) {
     e.preventDefault();
+    setPage(1);
     setSearchTerm(e.target.searchField.value);
   }
 
@@ -28,22 +29,7 @@ function Gallery() {
 
   return (
     <div>
-      <div className="navbar-container">
-        <div className="logo">
-          <i className="fas fa-camera-retro"></i> <h1>Photos</h1>
-        </div>
-        <form className="search-box" onSubmit={handleSubmit}>
-          <input
-            type="text"
-            className="search-input-field"
-            placeholder="Search..."
-            name="searchField"
-          />
-          <button>
-            <i className="fas fa-search"></i>
-          </button>
-        </form>
-      </div>
+      {isLoading && <Loading />}
       <div className="gallery-container">
         <p style={{ position: "absolute", top: "12vh", right: "45%" }}>
           {errors[0]}
@@ -51,8 +37,18 @@ function Gallery() {
         {images.map((image) => {
           return <Image url={image.src.medium} />;
         })}
-        {isLoading == true && <Loading />}
       </div>
+      <form className="search-box" onSubmit={handleSubmit}>
+        <input
+          type="text"
+          className="search-input-field"
+          placeholder="Search..."
+          name="searchField"
+        />
+        <button>
+          <i className="fas fa-search"></i>
+        </button>
+      </form>
     </div>
   );
 }

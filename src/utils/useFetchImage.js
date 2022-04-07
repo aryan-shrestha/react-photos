@@ -15,7 +15,7 @@ function useFetchImage(props) {
       let url = `curated/?page=${props.page}&per_page=20`;
       fetchImage(url, fetchRandom);
     } else {
-      let url = `search/?page=1&per_page=20&query=${props.searchTerm}`;
+      let url = `search/?page=${props.page}&per_page=20&query=${props.searchTerm}`;
       fetchImage(url, fetchSearch);
     }
   }
@@ -24,7 +24,6 @@ function useFetchImage(props) {
     axios
       .get(url)
       .then((res) => {
-        // setImages([...images, res.data.photos]);
         func(res);
       })
       .catch((e) => {
@@ -35,9 +34,13 @@ function useFetchImage(props) {
   }
 
   function fetchSearch(res) {
-    console.log([...res.data.photos]);
-    setImages([...res.data.photos]);
-    console.log(images);
+    if (props.page > 1) {
+      setImages([...images, ...res.data.photos]);
+    } else {
+      setImages([...res.data.photos]);
+    }
+
+    setIsLoading(false);
   }
 
   function fetchRandom(res) {
@@ -48,12 +51,7 @@ function useFetchImage(props) {
   useEffect(() => {
     setIsLoading(true);
     fetch();
-  }, [props.page]);
-
-  useEffect(() => {
-    setIsLoading(true);
-    fetch();
-  }, [props.searchTerm]);
+  }, [props.page, props.searchTerm]);
 
   return [images, setImages, isLoading, errors];
 }

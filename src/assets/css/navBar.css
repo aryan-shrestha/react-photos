@@ -35,36 +35,3 @@
   font-family: "Reenie Beanie", cursive;
   font-size: 35px;
 }
-
-.search-box {
-  background-color: blanchedalmond;
-  height: 6vh;
-  padding: 8px;
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  border-radius: 15px;
-  background: #f1f0f0d5;
-}
-
-.search-box > input,
-.search-box button {
-  background-color: rgba(255, 255, 255, 0);
-  border: none;
-  outline: none;
-  font-size: 16px;
-  color: #102437b1;
-}
-
-.search-box > input {
-  width: 20rem;
-}
-
-.search-box > button {
-  font-size: 20px;
-  cursor: pointer;
-}
-
-.search-box > button:hover {
-  color: #102437;
-}
