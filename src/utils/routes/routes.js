@@ -8,7 +8,7 @@ const routes = [
     path: "/",
     exact: true,
     component: () => <Home />,
-    protected: null,
+    protected: "auth",
   },
   {
     path: "/about",

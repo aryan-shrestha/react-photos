@@ -6,6 +6,8 @@ import { app } from "./firebase/firebase";
 import Gallery from "./components/Gallery";
 import NavBar from "./components/NavBar";
 import Loading from "./components/Loading";
+import AuthRoute from "./utils/routes/AuthRoute";
+import GuestRoute from "./utils/routes/GuestRoute";
 
 import "./assets/css/style.css";
 import routes from "./utils/routes/routes";
@@ -40,6 +42,26 @@ function App() {
           <NavBar />
           <Switch>
             {routes.map((route, index) => {
+              if (route.protected === "guest") {
+                return (
+                  <GuestRoute
+                    path={route.path}
+                    exact={route.exact}
+                    component={route.component}
+                  />
+                );
+              }
+
+              if (route.protected === "auth") {
+                return (
+                  <AuthRoute
+                    path={route.path}
+                    exact={route.exact}
+                    component={route.component}
+                  />
+                );
+              }
+
               return (
                 <Route
                   exact={route.exact}
