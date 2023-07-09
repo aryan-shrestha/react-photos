@@ -18,7 +18,8 @@ An ecommerce website build using Django framework.
 
 * User authentication using firebase.
 * Image search using Pexel API
-
+  
+</p>
 
 ## Screenshots
 
@@ -29,6 +30,8 @@ An ecommerce website build using Django framework.
 <p align="center">
   <img src="https://res.cloudinary.com/djwyoxnkk/image/upload/v1688911729/Project%20Screenshots/react%20photos/photos_2_prblzo.png">
 </p>
+
+<p>
 ## Installation
 
 - Clone or download the repo
@@ -42,3 +45,4 @@ $ npm install
 # run on localhost
 $ npm start
 ```
+</p>
