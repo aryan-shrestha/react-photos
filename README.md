@@ -10,20 +10,6 @@ A photo gallery app where people can search for photos of anything.
 ## Screenshots
 
 <p align="center">
-  <img src="# Django e-commerce application
-
-An ecommerce website build using Django framework.
-
-## Features
-
-* User authentication using firebase.
-* Image search using Pexel API
-  
-</p>
-
-## Screenshots
-
-<p align="center">
   <img src="https://res.cloudinary.com/djwyoxnkk/image/upload/v1688911725/Project%20Screenshots/react%20photos/photos_1_hc6ds9.png">
 </p>
 
@@ -31,7 +17,6 @@ An ecommerce website build using Django framework.
   <img src="https://res.cloudinary.com/djwyoxnkk/image/upload/v1688911729/Project%20Screenshots/react%20photos/photos_2_prblzo.png">
 </p>
 
-<p>
 ## Installation
 
 - Clone or download the repo
@@ -45,4 +30,3 @@ $ npm install
 # run on localhost
 $ npm start
 ```
-</p>
